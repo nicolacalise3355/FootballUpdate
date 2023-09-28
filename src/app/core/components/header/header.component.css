@@ -1,0 +1,10 @@
+
+.container-header{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title-header{
+    text-align: center;
+}

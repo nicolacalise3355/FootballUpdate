@@ -1,0 +1,8 @@
+<div class="container-header">
+    <h1 class="title-header">{{ 'football updates' | uppercase }}</h1>
+    <app-navigator
+        (onClickTab)="onClickNavigator($event)"
+        [leagues]="countryLeagues"
+        [leagueSelected]="leagueSelected"
+    ></app-navigator>
+</div>

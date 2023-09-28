@@ -1,0 +1,19 @@
+.navigator-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 16px;
+    gap: 32px;
+    border-radius: 999px;
+}
+
+.item-navigator{
+    color: black;
+    cursor: pointer;
+}
+
+.selected{
+    color: blue;
+}

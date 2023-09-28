@@ -1,0 +1,11 @@
+<div class="navigator-container">
+    <div *ngFor="let league of leagues; index as i">
+        <div 
+            (click)="onClickOnTab(i)"
+            class="item-navigator"
+            [ngClass]="{ 'selected': league === leagueSelected }"
+        >
+            {{league.name}}
+        </div>
+    </div>
+</div>
