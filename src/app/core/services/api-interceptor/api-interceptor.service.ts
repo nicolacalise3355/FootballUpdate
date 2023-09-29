@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
-import { environment } from 'src/app/environment';
+import { environment } from '../../../environment';
 import { HttpCacheService } from '../http-cache/http-cache.service';
 
 @Injectable({

@@ -4,9 +4,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { StandingsApiResponse } from '../interfaces/league.interfaces';
 
-import { environment } from 'src/app/environment';
-import { ApiEndpoints } from 'src/app/core/enums/api-path';
-import { DateService } from 'src/app/core/services/date/date.service';
+import { environment } from '../../../environment';
+import { ApiEndpoints } from '../../../core/enums/api-path';
+import { DateService } from '../../../core/services/date/date.service';
 @Injectable({
   providedIn: 'root'
 })

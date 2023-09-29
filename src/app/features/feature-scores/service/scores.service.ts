@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiEndpoints } from 'src/app/core/enums/api-path';
-import { environment } from 'src/app/environment';
+import { ApiEndpoints } from '../../../core/enums/api-path';
+import { environment } from '../../../environment';
 import { ScoreApiResponse } from '../interfaces/scores.interfaces';
 
 @Injectable({

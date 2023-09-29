@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LeagueSelectedService } from 'src/app/core/services/league-selected/league-selected.service';
+import { LeagueSelectedService } from '../../../../core/services/league-selected/league-selected.service';
 import { RankingService } from '../../services/ranking.service';
 import { LeagueItem, Standing } from '../../interfaces/league.interfaces';
 
