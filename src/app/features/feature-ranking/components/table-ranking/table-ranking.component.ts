@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { LeagueItem, Standing, Team } from '../../interfaces/league.interfaces';
 import { Router } from '@angular/router';
 
@@ -7,15 +7,18 @@ import { Router } from '@angular/router';
   templateUrl: './table-ranking.component.html',
   styleUrls: ['./table-ranking.component.css']
 })
-export class TableRankingComponent implements OnInit{
+export class TableRankingComponent implements OnInit, OnChanges{
 
-  @Input() leagueItem: LeagueItem | undefined;
-  standings: Standing[] = [];
+  @Input() standings: Standing[] = [];
 
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.standings = this.leagueItem?.standings[0] ?? [];
+    //this.standings = this.leagueItem?.standings[0] ?? [];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.standings = changes['leagueitem'].currentValue;
   }
 
   clickOnTeam(team: Team){

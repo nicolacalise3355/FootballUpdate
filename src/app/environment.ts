@@ -1,7 +1,6 @@
 
 export const environment = {
     production: false,
-    //baseUrl: 'https://v3.football.api-sports.io', 
-    baseUrl: 'http://localhost/localapi',
-    appIdKey: 'c409fa421534b8c1bdd56abb7471558e'
+    baseUrl: 'https://v3.football.api-sports.io', 
+    appIdKey: 'a20356c643bb0f6d273c369d21238908'
 }

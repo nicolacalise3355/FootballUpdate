@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LeagueSelectedService } from 'src/app/core/services/league-selected/league-selected.service';
 import { RankingService } from '../../services/ranking.service';
-import { LeagueItem } from '../../interfaces/league.interfaces';
+import { LeagueItem, Standing } from '../../interfaces/league.interfaces';
 
 @Component({
   selector: 'app-ranking',
@@ -13,7 +13,7 @@ export class RankingComponent implements OnInit{
 
   idCountry: number = 0;
   countryName: string = '';
-  leagueItem: LeagueItem | undefined;
+  stands: Standing[] = [];
   error: boolean = false;
 
   constructor(
@@ -31,7 +31,8 @@ export class RankingComponent implements OnInit{
             this.countryName = l.name ?? res.response[0].league.country;
             if(Object.keys(l).length === 0) this.leagueSelectedService.setLeague({ id: res.response[0].league.id, name: res.response[0].league.country })
           })
-          this.leagueItem = res.response[0].league;
+        console.log(res.response[0].league);
+        this.stands = res.response[0].league.standings[0];
         }else{
           this.error = true;
         }

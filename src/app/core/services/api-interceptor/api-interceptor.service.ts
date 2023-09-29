@@ -14,25 +14,28 @@ export class ApiInterceptorService implements HttpInterceptor{
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (request.method === 'GET') {
-      const cache = this.cacheService.get(request.url);
+      const cache = this.cacheService.get(request.urlWithParams);
+      console.log(request.urlWithParams);
+      console.log(cache);
+      
       if (cache) {
+        console.log("inside");
+        
         return of(new HttpResponse({ body: cache }));
       }
     }
 
     request = request.clone({
-      /* Add when pass to prduction
       setHeaders: {
         "x-rapidapi-key": environment.appIdKey,
         "x-rapidapi-host": environment.baseUrl,
       }
-      */
     });
 
     return next.handle(request).pipe(
       tap((event) => {
         if (event instanceof HttpResponse) {
-          this.cacheService.set(request.url, event.body, 30000);
+          this.cacheService.set(request.urlWithParams, event.body, 30000);
         }
       })
     );
