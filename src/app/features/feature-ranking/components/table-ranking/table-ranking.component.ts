@@ -14,11 +14,9 @@ export class TableRankingComponent implements OnInit, OnChanges{
   constructor(private router: Router){}
 
   ngOnInit(): void {
-    //this.standings = this.leagueItem?.standings[0] ?? [];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.standings = changes['leagueitem'].currentValue;
   }
 
   clickOnTeam(team: Team){

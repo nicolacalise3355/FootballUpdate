@@ -15,12 +15,7 @@ export class ApiInterceptorService implements HttpInterceptor{
 
     if (request.method === 'GET') {
       const cache = this.cacheService.get(request.urlWithParams);
-      console.log(request.urlWithParams);
-      console.log(cache);
-      
       if (cache) {
-        console.log("inside");
-        
         return of(new HttpResponse({ body: cache }));
       }
     }
