@@ -1,4 +1,4 @@
 
 export enum ApiEndpoints{
-    standings = ''
+    standings = '/standings'
 }

@@ -9,6 +9,13 @@ import { HomepageComponent } from './features/global/pages/homepage/homepage.com
 import { ScoresComponent } from './features/feature-scores/pages/scores/scores.component';
 import { NavigatorComponent } from './core/components/navigator/navigator.component';
 
+import { LeagueSelectedService } from './core/services/league-selected/league-selected.service';
+import { TableRankingComponent } from './features/feature-ranking/components/table-ranking/table-ranking.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiInterceptorService } from './core/services/api-interceptor/api-interceptor.service';
+import { DateService } from './core/services/date/date.service';
+import { RankingService } from './features/feature-ranking/services/ranking.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +23,15 @@ import { NavigatorComponent } from './core/components/navigator/navigator.compon
     RankingComponent,
     HomepageComponent,
     ScoresComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    TableRankingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LeagueSelectedService, ApiInterceptorService, DateService, RankingService,{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

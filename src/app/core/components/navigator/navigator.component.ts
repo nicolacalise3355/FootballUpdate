@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { League } from '../../interfaces/leagues.models';
-
 @Component({
   selector: 'app-navigator',
   templateUrl: './navigator.component.html',
@@ -12,8 +11,9 @@ export class NavigatorComponent implements OnInit{
   @Input() leagues: League[] = [];
   @Input() leagueSelected: League = {};
 
+  constructor(){}
+
   ngOnInit(): void {
-    
   }
 
   onClickOnTab(index: number){

@@ -1,6 +1,6 @@
 
 export interface League{
-    key?: string;
+    key?: number;
     id?: string;
     name?: string;
 }
