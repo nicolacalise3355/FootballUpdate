@@ -9,7 +9,7 @@ export class HttpCacheService {
 
   constructor() {}
 
-  set(key: string, value: any, ttl: number = 600000): void {
+  set(key: string, value: any, ttl: number = 30000): void {
     const expirationTime = Date.now() + ttl;
     this.cache.set(key, { data: value, exp: expirationTime });
   }

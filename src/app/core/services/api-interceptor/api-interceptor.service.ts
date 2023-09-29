@@ -32,7 +32,7 @@ export class ApiInterceptorService implements HttpInterceptor{
     return next.handle(request).pipe(
       tap((event) => {
         if (event instanceof HttpResponse) {
-          this.cacheService.set(request.url, event.body, 600000);
+          this.cacheService.set(request.url, event.body, 30000);
         }
       })
     );
