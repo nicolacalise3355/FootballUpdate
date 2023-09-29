@@ -15,6 +15,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptorService } from './core/services/api-interceptor/api-interceptor.service';
 import { DateService } from './core/services/date/date.service';
 import { RankingService } from './features/feature-ranking/services/ranking.service';
+import { ScoresService } from './features/feature-scores/service/scores.service';
+import { TableScoresComponent } from './features/feature-scores/components/table-scores/table-scores.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,15 @@ import { RankingService } from './features/feature-ranking/services/ranking.serv
     HomepageComponent,
     ScoresComponent,
     NavigatorComponent,
-    TableRankingComponent
+    TableRankingComponent,
+    TableScoresComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule
   ],
-  providers: [LeagueSelectedService, ApiInterceptorService, DateService, RankingService,{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }],
+  providers: [LeagueSelectedService, ApiInterceptorService, DateService, RankingService, ScoresService, { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

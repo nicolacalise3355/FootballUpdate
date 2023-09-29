@@ -1,1 +1,13 @@
-<p>scores works!</p>
+<div class="container-score">
+    <div *ngIf="error">
+        <p>Error while loading data!.</p>
+    </div>
+    <app-table-scores
+        *ngIf="scores"
+        [scores]="scores"
+    >
+    </app-table-scores>
+    <button class="button-back-league" (click)="onClickBack()">
+        Back
+    </button>
+</div>

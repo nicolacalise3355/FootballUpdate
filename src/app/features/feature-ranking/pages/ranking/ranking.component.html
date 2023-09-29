@@ -1,5 +1,11 @@
 <h2 class="title-ranking">Ranking for: {{ countryName }}</h2>
 <app-table-ranking
+    *ngIf="leagueItem"
     [leagueItem]="leagueItem"
 >
 </app-table-ranking>
+<div
+    *ngIf="error"
+>
+    <p>Error while loading data. Please retry.</p>
+</div>

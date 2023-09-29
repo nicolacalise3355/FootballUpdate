@@ -12,10 +12,12 @@ export class ApiInterceptorService implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
+      /* Add when pass to prduction
       setHeaders: {
         "x-rapidapi-key": environment.appIdKey,
         "x-rapidapi-host": environment.baseUrl,
       }
+      */
     });
 
     return next.handle(request);

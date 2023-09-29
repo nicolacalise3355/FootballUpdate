@@ -14,6 +14,7 @@ export class RankingComponent implements OnInit{
   idCountry: number = 0;
   countryName: string = '';
   leagueItem: LeagueItem | undefined;
+  error: boolean = false;
 
   constructor(
     private route: ActivatedRoute, 
@@ -24,15 +25,16 @@ export class RankingComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(p => {
       this.idCountry = p['id'];
-      this.leagueSelectedService.selectedProduct$.subscribe(l => {
+      this.leagueSelectedService.selectedLeague$.subscribe(l => {
           this.countryName = l.name ?? '';
       })
       this.rankingService.getStanding(p['id']).subscribe(res =>{
         console.log(res);
-        
         if(res.errors.length === 0){
           this.leagueItem = res.response[0].league;
           console.log(this.leagueItem);
+        }else{
+          this.error = true;
         }
       })
     })

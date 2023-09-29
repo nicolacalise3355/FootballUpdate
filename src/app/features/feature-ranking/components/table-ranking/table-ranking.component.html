@@ -1,19 +1,26 @@
 <div class="table-ranking-container">
     <table>
         <tr>
-            <th></th>
-            <th></th>
-            <th>Name</th>
-            <th>Games</th>
-            <th>W</th>
-            <th>L</th>
-            <th>D</th>
-            <th>Goal Difference</th>
-            <th>Points</th>
+            <th id="position"></th>
+            <th id="logo"></th>
+            <th id="name">Name</th>
+            <th id="games">Games</th>
+            <th id="win">W</th>
+            <th id="lose">L</th>
+            <th id="dr">D</th>
+            <th id="goaldiff">Goal Difference</th>
+            <th id="points">Points</th>
         </tr>
-        <!-- 
-        <tr *ngFor="let league of leagues; index as i">
+        <tr *ngFor="let stand of standings; index as i">
+            <th id="position">{{stand.rank}}</th>
+            <th id="logo"><img class="logo-ranking" [src]="stand.team.logo" alt="logo-team"/></th>
+            <th id="name" class="name-team" (click)="clickOnTeam(stand.team)">{{stand.team.name}}</th>
+            <th id="games">{{stand.all.played}}</th>
+            <th id="win">{{stand.all.win}}</th>
+            <th id="lose">{{stand.all.lose}}</th>
+            <th id="dr">{{stand.all.draw}}</th>
+            <th id="goaldiff">{{stand.goalsDiff}}</th>
+            <th id="points">{{stand.points}}</th>
         </tr>
-        -->
     </table>
 </div>

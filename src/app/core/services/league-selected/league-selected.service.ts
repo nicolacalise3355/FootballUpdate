@@ -8,7 +8,7 @@ import { leagues } from '../../constants/leagues';
 })
 export class LeagueSelectedService {
   private league$ = new BehaviorSubject<League>({});
-  selectedProduct$ = this.league$.asObservable();
+  selectedLeague$ = this.league$.asObservable();
   constructor() {}
 
   setLeague(league: League) {
