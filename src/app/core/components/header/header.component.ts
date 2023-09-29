@@ -10,19 +10,16 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent{
 
   countryLeagues: League[] = leagues;
   leagueSelected: League = {};
 
   constructor(private leagueSelectedService: LeagueSelectedService, private router: Router){}
 
-  ngOnInit(): void {
-  }
-
   onClickNavigator($event: League){
     this.leagueSelectedService.setLeague($event)
-    this.router.navigate(['/ranking', $event.key]);
+    this.router.navigate(['/ranking', $event.id]);
   }
 
 }

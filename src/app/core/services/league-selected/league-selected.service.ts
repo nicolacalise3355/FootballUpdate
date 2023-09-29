@@ -15,9 +15,9 @@ export class LeagueSelectedService {
     this.league$.next(league);
   }
 
-  setLeagueByKey(key: number){
+  setLeagueByKey(id: number){
     this.setLeague(leagues.find(obj =>{
-      return obj.key === key;
+      return obj.id === id;
     }) ?? {})
   }
 }

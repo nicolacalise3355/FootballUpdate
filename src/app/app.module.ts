@@ -17,6 +17,7 @@ import { DateService } from './core/services/date/date.service';
 import { RankingService } from './features/feature-ranking/services/ranking.service';
 import { ScoresService } from './features/feature-scores/service/scores.service';
 import { TableScoresComponent } from './features/feature-scores/components/table-scores/table-scores.component';
+import { HttpCacheService } from './core/services/http-cache/http-cache.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { TableScoresComponent } from './features/feature-scores/components/table
     AppRoutingModule, 
     HttpClientModule
   ],
-  providers: [LeagueSelectedService, ApiInterceptorService, DateService, RankingService, ScoresService, { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }],
+  providers: [LeagueSelectedService, ApiInterceptorService, DateService, RankingService, ScoresService, HttpCacheService, { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

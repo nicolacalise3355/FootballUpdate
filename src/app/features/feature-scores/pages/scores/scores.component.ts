@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScoresService } from '../../service/scores.service';
-import { LeagueSelectedService } from 'src/app/core/services/league-selected/league-selected.service';
-import { ScoreFixture } from '../../interfaces/scores.interfaces';
+import { ScoreApiResponse, ScoreFixture } from '../../interfaces/scores.interfaces';
 
 @Component({
   selector: 'app-scores',
@@ -14,22 +13,21 @@ export class ScoresComponent implements OnInit{
   idTeam: number = 0;
   error: boolean = false;
   scores: ScoreFixture[] = [];
+  countryId: number = 0;
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router,
     private scoresService: ScoresService,
-    private leagueSelectedService: LeagueSelectedService,
   ){}
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {
       this.idTeam = p['id']; 
-      this.scoresService.getScores(p['id']).subscribe(res =>{
-        console.log(res);
+      this.scoresService.getScores(p['id']).subscribe((res: ScoreApiResponse) =>{
         if(res.errors.length === 0){
           this.scores = res.response;
-          console.log(this.scores);
+          this.countryId = res.response[0].league.id;
         }else{
           this.error = true;
         }
@@ -38,10 +36,7 @@ export class ScoresComponent implements OnInit{
   }
 
   onClickBack(){
-    this.leagueSelectedService.selectedLeague$.subscribe(res => {
-      console.log(res);
-      this.router.navigate(['/ranking', res.key]);
-    })
+    this.router.navigate(['/ranking', this.countryId]);
   }
 
 }

@@ -25,14 +25,13 @@ export class RankingComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(p => {
       this.idCountry = p['id'];
-      this.leagueSelectedService.selectedLeague$.subscribe(l => {
-          this.countryName = l.name ?? '';
-      })
       this.rankingService.getStanding(p['id']).subscribe(res =>{
-        console.log(res);
         if(res.errors.length === 0){
+          this.leagueSelectedService.selectedLeague$.subscribe(l => {
+            this.countryName = l.name ?? res.response[0].league.country;
+            if(Object.keys(l).length === 0) this.leagueSelectedService.setLeague({ id: res.response[0].league.id, name: res.response[0].league.country })
+          })
           this.leagueItem = res.response[0].league;
-          console.log(this.leagueItem);
         }else{
           this.error = true;
         }
