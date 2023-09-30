@@ -13,12 +13,12 @@ export class HttpCacheService {
 
   constructor() {}
 
-  set(key: string, value: any, ttl: number = 30000, path: string): void {
+  set(key: string, value: GenericApiResponse, ttl: number = 30000, path: string): void {
     const expirationTime = Date.now() + ttl;
     this.cache[path].set(key, { data: value, exp: expirationTime });
   }
 
-  get(key: string, path: string): any {
+  get(key: string, path: string): GenericApiResponse {
     const cacheItem = this.cache[path].get(key);
 
     if (cacheItem && cacheItem.exp > Date.now()) {
