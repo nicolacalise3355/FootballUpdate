@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScoresService } from '../../service/scores.service';
 import { ScoreApiResponse, ScoreFixture } from '../../interfaces/scores.interfaces';
+import { findIdByName } from 'src/app/core/constants/leagues';
 
 @Component({
   selector: 'app-scores',
@@ -27,7 +28,9 @@ export class ScoresComponent implements OnInit{
       this.scoresService.getScores(p['id']).subscribe((res: ScoreApiResponse) =>{
         if(res.errors.length === 0){
           this.scores = res.response;
-          this.countryId = res.response[0].league.id;
+          console.log(res);
+          
+          this.countryId = findIdByName(res.response[0].league.country);
         }else{
           this.error = true;
         }

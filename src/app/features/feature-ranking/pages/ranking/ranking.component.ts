@@ -31,7 +31,6 @@ export class RankingComponent implements OnInit{
             this.countryName = l.name ?? res.response[0].league.country;
             if(Object.keys(l).length === 0) this.leagueSelectedService.setLeague({ id: res.response[0].league.id, name: res.response[0].league.country })
           })
-        console.log(res.response[0].league);
         this.stands = res.response[0].league.standings[0];
         }else{
           this.error = true;

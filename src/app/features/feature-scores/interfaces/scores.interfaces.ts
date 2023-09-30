@@ -1,6 +1,6 @@
 export interface Fixture {
     id: number;
-    referee: any | null;
+    referee: string;
     timezone: string;
     date: string;
     timestamp: number;
@@ -59,17 +59,21 @@ export interface ScoreFixture{
     goals: Goals;
     score: Score;
 }
+
+export interface ErrorScoreApi{
+    token: string;
+}
   
 export interface ScoreApiResponse {
     get: string;
     parameters: {
       live: string;
     };
-    errors: any[];
+    errors: ErrorScoreApi[];
     results: number;
     paging: {
       current: number;
       total: number;
     };
     response: ScoreFixture[];
-  }
+}

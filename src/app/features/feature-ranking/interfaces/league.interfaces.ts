@@ -61,13 +61,17 @@ export interface ResponseItem {
     league: LeagueItem;
 }
 
+export interface ErrorStandingApi{
+    token: string;
+}
+
 export interface StandingsApiResponse {
     get: string;
     parameters: {
         league: string;
         season: string;
     };
-    errors: any[];
+    errors: ErrorStandingApi[];
     results: number;
     paging: Paging;
     response: ResponseItem[];
