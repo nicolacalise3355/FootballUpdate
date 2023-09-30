@@ -1,4 +1,4 @@
-import { StandingsApiResponse } from "src/app/features/feature-ranking/interfaces/league.interfaces";
-import { ScoreApiResponse } from "src/app/features/feature-scores/interfaces/scores.interfaces";
+import { StandingsApiResponse } from "../../features/feature-ranking/interfaces/league.interfaces";
+import { ScoreApiResponse } from "../../features/feature-scores/interfaces/scores.interfaces";
 
 export type GenericApiResponse = StandingsApiResponse | ScoreApiResponse | null;

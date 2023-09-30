@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScoresService } from '../../service/scores.service';
 import { ScoreApiResponse, ScoreFixture } from '../../interfaces/scores.interfaces';
-import { findIdByName } from 'src/app/core/constants/leagues';
+import { findIdByName } from '../../../../core/constants/leagues';
 
 @Component({
   selector: 'app-scores',
