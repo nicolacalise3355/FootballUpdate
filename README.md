@@ -1,6 +1,6 @@
 # FootballUpdate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+The following code refers to a mini project developed to obtain the Angular developer certification. The folder structure would need some modifications to comply with Angular standards.
 
 ## Development server
 
